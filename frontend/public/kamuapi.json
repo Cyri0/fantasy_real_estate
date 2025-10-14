@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "Shrek kunyhója a Mocsárban",
+        "priceInHUF": 120000000,
+        "created": "2025-10-14T15:12:41.334063Z",
+        "image": null,
+        "active": true
+    },
+    {
+        "id": 2,
+        "title": "Aranyhaj tornya",
+        "priceInHUF": 500000000,
+        "created": "2025-10-14T15:13:02.520126Z",
+        "image": null,
+        "active": true
+    },
+    {
+        "id": 3,
+        "title": "Harry Potter szobája a lépcső alatt",
+        "priceInHUF": 200000,
+        "created": "2025-10-14T15:13:25.791418Z",
+        "image": null,
+        "active": true
+    },
+    {
+        "id": 4,
+        "title": "Kacsalábon forgó Kastély",
+        "priceInHUF": 5000000000,
+        "created": "2025-10-14T15:44:02.106912Z",
+        "image": null,
+        "active": true
+    }
+]
