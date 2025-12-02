@@ -22,7 +22,7 @@ const NewEstate = () => {
     if(newErrors.length === 0){
       axios.post("http://localhost:8000/estate/add/", {
           title: title,
-          priceInHUF: 1000000
+          priceInHUF: priceInHUF
       }).then(_ => { 
         window.location.reload() 
       })
