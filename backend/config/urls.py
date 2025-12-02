@@ -20,5 +20,6 @@ from estate import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('estate/', views.getAllEstate)
+    path('estate/', views.getAllEstate),
+    path('estate/add/', views.createNewEstate)
 ]
