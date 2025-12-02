@@ -16,3 +16,12 @@ def createNewEstate(request):
         new_estate.save()
         return Response({"message": "OK"})
     return Response({"message": "Invalid data"})
+
+@api_view(['DELETE'])
+def deleteEstate(request, id):
+    try:
+        estate = Estate.objects.get(id=id)
+        estate.delete()
+        return Response({"message": "Deleted"})
+    except:
+        return Response({"message": "Estate not found"})
