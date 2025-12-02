@@ -1,19 +1,36 @@
 import { useState } from 'react'
 import axios from "axios"
+import style from './NewEstate.module.css'
 
 const NewEstate = () => {
-  const [title, setTitle] = useState("alma")
+  const [title, setTitle] = useState()
+  const [priceInHUF, setPriceInHUF] = useState()
+
+  const [errors, setErrors] = useState([])
 
   const saveEstate = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:8000/estate/add/", {
-        title: title,
-        priceInHUF: 1000000
-    }).then(_ => { window.location.reload() })
+    let newErrors = []
+    if(title === undefined || title.length === 0){
+      newErrors.push("Hiányzó cím!")
+    }
+    if(priceInHUF === undefined || priceInHUF < 1000){
+      newErrors.push("Túl olcsó ingatlan!")
+    }
+    setErrors(newErrors)
+
+    if(newErrors.length === 0){
+      axios.post("http://localhost:8000/estate/add/", {
+          title: title,
+          priceInHUF: 1000000
+      }).then(_ => { 
+        window.location.reload() 
+      })
+    }
   }
 
   return (
-    <div>
+    <div className={style.container}>
         <h2>Új Ingatlan</h2>
         <form onSubmit={saveEstate}>
             <label>Ingatlan neve</label><br/>
@@ -24,7 +41,13 @@ const NewEstate = () => {
             /><br/>
 
             <label>Ingatlan ára</label><br/>
-            <input type="number"/><br/>
+            <input 
+              type="number"
+              value={priceInHUF}
+              onChange={(e) => setPriceInHUF(Number(e.target.value))}
+            /><br/>
+
+            {errors.length > 0 && errors.map(error => <p style={{color: "red"}}>{error}</p>)}
 
             <button type='submit'>💾Mentés</button><br/>
         </form>

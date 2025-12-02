@@ -1,4 +1,5 @@
 import axios from "axios"
+import style from './EstateCard.module.css'
 
 const EstateCard = (props) => {
     const deleteEstate = () => {
@@ -7,7 +8,7 @@ const EstateCard = (props) => {
     }
 
     return (
-    <div>
+    <div className={style.container}>
         <h2>{props.title}</h2>
         <h3>{props.priceInHUF / 1000000}M Ft</h3>
         <h5>Feladva: { props.created }</h5>
